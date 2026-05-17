@@ -39,10 +39,32 @@ body.en {
   direction: ltr;
 }
 
-.ar-text { display: block; }
-.en { display: none; }
-body.en .ar-text { display: none; }
-body.en .en { display: block; }
+/* ════════════════════════════════════
+   LANGUAGE SWITCHING - WORKING VERSION
+════════════════════════════════════ */
+[lang-ar] { display: block !important; }
+[lang-en] { display: none !important; }
+
+body.en [lang-ar] { display: none !important; }
+body.en [lang-en] { display: block !important; }
+
+/* For inline elements like spans */
+span[lang-ar], 
+span[lang-en],
+button[lang-ar],
+button[lang-en] { 
+  display: inline !important; 
+}
+
+body.en span[lang-ar],
+body.en button[lang-ar] { 
+  display: none !important; 
+}
+
+body.en span[lang-en],
+body.en button[lang-en] { 
+  display: inline !important; 
+}
 
 /* ══════════════════════════════════════
    LANGUAGE SWITCHER
@@ -1052,38 +1074,38 @@ html[dir="ltr"] .team-tag {
 <div class="header">
   <div class="header-content">
     <h1 class="project-title">
-      <span class="ar-text">ممر الإمارات للطاقة الذكي</span>
-      <span class="en">UAE Smart Energy Corridor</span>
+      <span lang-ar>ممر الإمارات للطاقة الذكي</span>
+      <span lang-en>UAE Smart Energy Corridor</span>
     </h1>
     <p class="project-subtitle">
-      <span class="ar-text">فرصة استثمارية استراتيجية — قطاع البنية التحتية للطاقة</span>
-      <span class="en">Strategic Investment Opportunity — Energy Infrastructure Sector</span>
+      <span lang-ar>فرصة استثمارية استراتيجية — قطاع البنية التحتية للطاقة</span>
+      <span lang-en>Strategic Investment Opportunity — Energy Infrastructure Sector</span>
     </p>
     
     <div class="tabs">
       <button class="tab active" data-tab="overview" onclick="showTab('overview')">
-        <span class="ar-text">🏠 نظرة عامة</span>
-        <span class="en">🏠 Overview</span>
+        <span lang-ar>🏠 نظرة عامة</span>
+        <span lang-en>🏠 Overview</span>
       </button>
       <button class="tab" data-tab="integration" onclick="showTab('integration')">
-        <span class="ar-text">🤝 التكامل</span>
-        <span class="en">🤝 Integration</span>
+        <span lang-ar>🤝 التكامل</span>
+        <span lang-en>🤝 Integration</span>
       </button>
       <button class="tab" data-tab="numbers" onclick="showTab('numbers')">
-        <span class="ar-text">💰 الأرقام</span>
-        <span class="en">💰 Numbers</span>
+        <span lang-ar>💰 الأرقام</span>
+        <span lang-en>💰 Numbers</span>
       </button>
       <button class="tab" data-tab="why-now" onclick="showTab('why-now')">
-        <span class="ar-text">⏰ لماذا الآن</span>
-        <span class="en">⏰ Why Now</span>
+        <span lang-ar>⏰ لماذا الآن</span>
+        <span lang-en>⏰ Why Now</span>
       </button>
       <button class="tab" data-tab="team" onclick="showTab('team')">
-        <span class="ar-text">👥 الفريق</span>
-        <span class="en">👥 Team</span>
+        <span lang-ar>👥 الفريق</span>
+        <span lang-en>👥 Team</span>
       </button>
       <button class="tab" data-tab="contact" onclick="showTab('contact')">
-        <span class="ar-text">📞 تواصل</span>
-        <span class="en">📞 Contact</span>
+        <span lang-ar>📞 تواصل</span>
+        <span lang-en>📞 Contact</span>
       </button>
     </div>
   </div>
@@ -1099,18 +1121,18 @@ html[dir="ltr"] .team-tag {
     
     <!-- Crisis -->
     <div class="crisis-box">
-      <div class="crisis-number">21 <span class="ar-text">مليون</span><span class="en">Million</span></div>
+      <div class="crisis-number">21 <span lang-ar>مليون</span><span lang-en>Million</span></div>
       <div class="crisis-label">
-        <span class="ar-text">برميل نفط يومياً — معلقة على مضيق بعرض 34 كم</span>
-        <span class="en">Barrels of oil daily — hanging on a 34km-wide strait</span>
+        <span lang-ar>برميل نفط يومياً — معلقة على مضيق بعرض 34 كم</span>
+        <span lang-en>Barrels of oil daily — hanging on a 34km-wide strait</span>
       </div>
       <p class="crisis-text">
-        <span class="ar-text">
+        <span lang-ar>
           <strong>21% من الاستهلاك النفطي العالمي</strong> يمر عبر أخطر نقطة اختناق جيوسياسية على وجه الأرض. 
           حادثة واحدة — ناقلة نفط غارقة، صاروخ طائش، توتر عسكري — يمكن أن توقف تدفق الطاقة إلى آسيا بالكامل.<br/><br/>
           <strong>السؤال ليس "هل" ستحدث أزمة. السؤال هو "متى".</strong>
         </span>
-        <span class="en">
+        <span lang-en>
           <strong>21% of global oil consumption</strong> passes through the most dangerous geopolitical chokepoint on Earth. 
           One incident — a sunken tanker, stray missile, military escalation — can halt energy flow to all of Asia.<br/><br/>
           <strong>The question isn't "if" a crisis will happen. The question is "when".</strong>
@@ -1124,8 +1146,8 @@ html[dir="ltr"] .team-tag {
         <div style="display: inline-block; background: rgba(158,110,4,0.15); border: 2px solid rgba(158,110,4,0.4); border-radius: 12px; padding: 10px 24px;">
           <span style="font-size: 1.8rem;">💼</span>
           <span style="font-size: 1.3rem; font-weight: 800; color: #9e6e04; margin: 0 8px;">
-            <span class="ar-text">نقطة العبور الأعلى تكلفة عالمياً</span>
-            <span class="en">The World's Most Expensive Transit Point</span>
+            <span lang-ar>نقطة العبور الأعلى تكلفة عالمياً</span>
+            <span lang-en>The World's Most Expensive Transit Point</span>
           </span>
         </div>
       </div>
@@ -1136,8 +1158,8 @@ html[dir="ltr"] .team-tag {
           <div style="font-size: 2.5rem; margin-bottom: 8px;">🌍</div>
           <div style="font-size: 2rem; font-weight: 800; color: #c07018; margin-bottom: 8px;">21%</div>
           <div style="font-size: 0.9rem; color: var(--mid); font-weight: 600;">
-            <span class="ar-text">من النفط العالمي</span>
-            <span class="en">of Global Oil</span>
+            <span lang-ar>من النفط العالمي</span>
+            <span lang-en>of Global Oil</span>
           </div>
         </div>
 
@@ -1145,20 +1167,20 @@ html[dir="ltr"] .team-tag {
           <div style="font-size: 2.5rem; margin-bottom: 8px;">💰</div>
           <div style="font-size: 2rem; font-weight: 800; color: #c07018; margin-bottom: 8px;">$500K+</div>
           <div style="font-size: 0.9rem; color: var(--mid); font-weight: 600;">
-            <span class="ar-text">تكلفة التأمين لكل شحنة</span>
-            <span class="en">Insurance Cost per Shipment</span>
+            <span lang-ar>تكلفة التأمين لكل شحنة</span>
+            <span lang-en>Insurance Cost per Shipment</span>
           </div>
         </div>
 
         <div style="background: white; border-radius: 12px; padding: 20px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
           <div style="font-size: 2.5rem; margin-bottom: 8px;">⏱️</div>
           <div style="font-size: 2rem; font-weight: 800; color: #c07018; margin-bottom: 8px;">
-            <span class="ar-text">8-12</span>
-            <span class="en">8-12</span>
+            <span lang-ar>8-12</span>
+            <span lang-en>8-12</span>
           </div>
           <div style="font-size: 0.9rem; color: var(--mid); font-weight: 600;">
-            <span class="ar-text">ساعات عبور في منطقة مزدحمة</span>
-            <span class="en">Hours Transit in Congested Zone</span>
+            <span lang-ar>ساعات عبور في منطقة مزدحمة</span>
+            <span lang-en>Hours Transit in Congested Zone</span>
           </div>
         </div>
 
@@ -1166,17 +1188,17 @@ html[dir="ltr"] .team-tag {
 
       <div style="background: rgba(158,110,4,0.08); border-radius: 10px; padding: 20px; text-align: center;">
         <div style="font-size: 1rem; color: #9e6e04; font-weight: 700; margin-bottom: 12px;">
-          <span class="ar-text">📊 التكاليف التشغيلية الحقيقية:</span>
-          <span class="en">📊 Real Operating Costs:</span>
+          <span lang-ar>📊 التكاليف التشغيلية الحقيقية:</span>
+          <span lang-en>📊 Real Operating Costs:</span>
         </div>
         <div style="font-size: 0.85rem; color: var(--dark); line-height: 1.8;">
-          <span class="ar-text">
+          <span lang-ar>
             • <strong>تأمين مرتفع:</strong> War Risk Premium يصل إلى $0.8-1.5 للبرميل<br/>
             • <strong>تأخيرات ملاحية:</strong> 15-20% من الشحنات تواجه تأخيرات<br/>
             • <strong>رسوم انتظار:</strong> Demurrage يصل إلى $25,000-50,000 يومياً<br/>
             • <strong>كفاءة منخفضة:</strong> مسار بحري طويل مقابل أنبوب مباشر
           </span>
-          <span class="en">
+          <span lang-en>
             • <strong>High Insurance:</strong> War Risk Premium up to $0.8-1.5 per barrel<br/>
             • <strong>Maritime Delays:</strong> 15-20% of shipments face delays<br/>
             • <strong>Waiting Fees:</strong> Demurrage up to $25,000-50,000 daily<br/>
@@ -1186,8 +1208,8 @@ html[dir="ltr"] .team-tag {
       </div>
 
       <div style="margin-top: 20px; text-align: center; font-size: 0.95rem; color: #9e6e04; font-weight: 600;">
-        <span class="ar-text">💡 الفرصة: طريق بري سيادي = توفير 40-60% من التكاليف التشغيلية</span>
-        <span class="en">💡 Opportunity: Sovereign land route = 40-60% savings on operating costs</span>
+        <span lang-ar>💡 الفرصة: طريق بري سيادي = توفير 40-60% من التكاليف التشغيلية</span>
+        <span lang-en>💡 Opportunity: Sovereign land route = 40-60% savings on operating costs</span>
       </div>
     </div>
 
@@ -1195,18 +1217,18 @@ html[dir="ltr"] .team-tag {
     <div class="solution-box">
       <div class="section-badge">
         <span>◆</span>
-        <span class="ar-text">الحل</span>
-        <span class="en">The Solution</span>
+        <span lang-ar>الحل</span>
+        <span lang-en>The Solution</span>
       </div>
       
       <h2 class="solution-title">
-        <span class="ar-text">ممر الإمارات للطاقة الذكي</span>
-        <span class="en">UAE Smart Energy Corridor</span>
+        <span lang-ar>ممر الإمارات للطاقة الذكي</span>
+        <span lang-en>UAE Smart Energy Corridor</span>
       </h2>
       
       <p class="solution-text">
-        <span class="ar-text">515 كيلومتراً من الأنابيب السيادية البرية تربط المحيط الهندي بالخليج العربي — بالكامل داخل الأراضي الإماراتية، متجاوزةً مضيق هرمز كلياً.</span>
-        <span class="en">515 km of sovereign overland pipeline connecting the Indian Ocean to the Arabian Gulf — entirely within UAE territory, bypassing Hormuz completely.</span>
+        <span lang-ar>515 كيلومتراً من الأنابيب السيادية البرية تربط المحيط الهندي بالخليج العربي — بالكامل داخل الأراضي الإماراتية، متجاوزةً مضيق هرمز كلياً.</span>
+        <span lang-en>515 km of sovereign overland pipeline connecting the Indian Ocean to the Arabian Gulf — entirely within UAE territory, bypassing Hormuz completely.</span>
       </p>
       
       <!-- Pipeline Route -->
@@ -1215,47 +1237,47 @@ html[dir="ltr"] .team-tag {
           <div class="pipe-icon">🏭</div>
           <div class="pipe-name">Ruwais</div>
           <div class="pipe-emirate">
-            <span class="ar-text">أبوظبي</span>
-            <span class="en">Abu Dhabi</span>
+            <span lang-ar>أبوظبي</span>
+            <span lang-en>Abu Dhabi</span>
           </div>
         </div>
         
         <div class="pipe-arrow">
-          <span class="pipe-km">145 <span class="ar-text">كم</span><span class="en">km</span></span>
+          <span class="pipe-km">145 <span lang-ar>كم</span><span lang-en>km</span></span>
         </div>
         
         <div class="pipe-city">
           <div class="pipe-icon">⚙️</div>
           <div class="pipe-name">Hatta</div>
           <div class="pipe-emirate">
-            <span class="ar-text">دبي</span>
-            <span class="en">Dubai</span>
+            <span lang-ar>دبي</span>
+            <span lang-en>Dubai</span>
           </div>
         </div>
         
         <div class="pipe-arrow">
-          <span class="pipe-km">150 <span class="ar-text">كم</span><span class="en">km</span></span>
+          <span class="pipe-km">150 <span lang-ar>كم</span><span lang-en>km</span></span>
         </div>
         
         <div class="pipe-city">
           <div class="pipe-icon">🚢</div>
           <div class="pipe-name">Kalba</div>
           <div class="pipe-emirate">
-            <span class="ar-text">الشارقة</span>
-            <span class="en">Sharjah</span>
+            <span lang-ar>الشارقة</span>
+            <span lang-en>Sharjah</span>
           </div>
         </div>
         
         <div class="pipe-arrow">
-          <span class="pipe-km">70 <span class="ar-text">كم</span><span class="en">km</span></span>
+          <span class="pipe-km">70 <span lang-ar>كم</span><span lang-en>km</span></span>
         </div>
         
         <div class="pipe-city">
           <div class="pipe-icon">⚓</div>
           <div class="pipe-name">Fujairah</div>
           <div class="pipe-emirate">
-            <span class="ar-text">المحيط الهندي</span>
-            <span class="en">Indian Ocean</span>
+            <span lang-ar>المحيط الهندي</span>
+            <span lang-en>Indian Ocean</span>
           </div>
         </div>
       </div>
@@ -1265,68 +1287,68 @@ html[dir="ltr"] .team-tag {
     <div class="compare-grid">
       <div class="compare-card bad">
         <div class="compare-title">
-          ⚠ <span class="ar-text">عبر مضيق هرمز — اليوم</span><span class="en">Via Hormuz — Today</span>
+          ⚠ <span lang-ar>عبر مضيق هرمز — اليوم</span><span lang-en>Via Hormuz — Today</span>
         </div>
         <div class="compare-row">
           <span class="compare-icon">✗</span>
           <span>
-            <span class="ar-text">العبور: 10-14 يوماً · التكلفة: $4.5-6 لكل برميل</span>
-            <span class="en">Transit: 10–14 days · Cost: $4.5–6/bbl</span>
+            <span lang-ar>العبور: 10-14 يوماً · التكلفة: $4.5-6 لكل برميل</span>
+            <span lang-en>Transit: 10–14 days · Cost: $4.5–6/bbl</span>
           </span>
         </div>
         <div class="compare-row">
           <span class="compare-icon">✗</span>
           <span>
-            <span class="ar-text">رسوم الانتظار: $25,000-50,000 لكل يوم تأخير</span>
-            <span class="en">Demurrage: $25,000–50,000/day of delay</span>
+            <span lang-ar>رسوم الانتظار: $25,000-50,000 لكل يوم تأخير</span>
+            <span lang-en>Demurrage: $25,000–50,000/day of delay</span>
           </span>
         </div>
         <div class="compare-row">
           <span class="compare-icon">✗</span>
           <span>
-            <span class="ar-text">تأمين حربي مرتفع عند الأزمات</span>
-            <span class="en">High war-risk insurance premium</span>
+            <span lang-ar>تأمين حربي مرتفع عند الأزمات</span>
+            <span lang-en>High war-risk insurance premium</span>
           </span>
         </div>
         <div class="compare-row">
           <span class="compare-icon">✗</span>
           <span>
-            <span class="ar-text">لا ضمان تعاقدي — أسعار متذبذبة يومياً</span>
-            <span class="en">No contractual guarantee — daily rate fluctuations</span>
+            <span lang-ar>لا ضمان تعاقدي — أسعار متذبذبة يومياً</span>
+            <span lang-en>No contractual guarantee — daily rate fluctuations</span>
           </span>
         </div>
       </div>
 
       <div class="compare-card good">
         <div class="compare-title">
-          ✓ <span class="ar-text">عبر UEC — الحل</span><span class="en">Via UEC — The Answer</span>
+          ✓ <span lang-ar>عبر UEC — الحل</span><span lang-en>Via UEC — The Answer</span>
         </div>
         <div class="compare-row">
           <span class="compare-icon">✓</span>
           <span>
-            <span class="ar-text">التسليم: 3-4 أيام · التكلفة: $1.8-2.5 لكل برميل</span>
-            <span class="en">Delivery: 3–4 days · Cost: $1.8–2.5/bbl</span>
+            <span lang-ar>التسليم: 3-4 أيام · التكلفة: $1.8-2.5 لكل برميل</span>
+            <span lang-en>Delivery: 3–4 days · Cost: $1.8–2.5/bbl</span>
           </span>
         </div>
         <div class="compare-row">
           <span class="compare-icon">✓</span>
           <span>
-            <span class="ar-text">صفر رسوم انتظار — تدفق مستمر 24/7</span>
-            <span class="en">Zero demurrage — 24/7 continuous pipeline flow</span>
+            <span lang-ar>صفر رسوم انتظار — تدفق مستمر 24/7</span>
+            <span lang-en>Zero demurrage — 24/7 continuous pipeline flow</span>
           </span>
         </div>
         <div class="compare-row">
           <span class="compare-icon">✓</span>
           <span>
-            <span class="ar-text">أنبوب أرضي مغلق — صفر مخاطر بحرية</span>
-            <span class="en">Underground pipeline — zero maritime risk</span>
+            <span lang-ar>أنبوب أرضي مغلق — صفر مخاطر بحرية</span>
+            <span lang-en>Underground pipeline — zero maritime risk</span>
           </span>
         </div>
         <div class="compare-row">
           <span class="compare-icon">✓</span>
           <span>
-            <span class="ar-text">عقود Tolling طويلة الأجل — أسعار مضمونة</span>
-            <span class="en">Long-term Tolling contracts — fixed guaranteed rates</span>
+            <span lang-ar>عقود Tolling طويلة الأجل — أسعار مضمونة</span>
+            <span lang-en>Long-term Tolling contracts — fixed guaranteed rates</span>
           </span>
         </div>
       </div>
@@ -1341,23 +1363,23 @@ html[dir="ltr"] .team-tag {
     
     <div class="section-badge">
       <span>◈</span>
-      <span class="ar-text">التموضع الاستراتيجي</span>
-      <span class="en">Strategic Positioning</span>
+      <span lang-ar>التموضع الاستراتيجي</span>
+      <span lang-en>Strategic Positioning</span>
     </div>
     
     <h2 class="section-title">
-      <span class="ar-text">شراكة استراتيجية محتملة — وليس تنافساً</span>
-      <span class="en">Strategic Partnership Potential — Not Competition</span>
+      <span lang-ar>شراكة استراتيجية محتملة — وليس تنافساً</span>
+      <span lang-en>Strategic Partnership Potential — Not Competition</span>
     </h2>
 
     <div class="integration-box">
       <h3 class="integration-title">
-        🤝 <span class="ar-text">كيف يُكمل UEC البنية التحتية الحالية</span>
-        <span class="en">How UEC Complements Existing Infrastructure</span>
+        🤝 <span lang-ar>كيف يُكمل UEC البنية التحتية الحالية</span>
+        <span lang-en>How UEC Complements Existing Infrastructure</span>
       </h3>
       
       <p class="integration-text">
-        <span class="ar-text">
+        <span lang-ar>
           <strong>أنبوب أدنوك الحالي:</strong><br/>
           • <strong>المنتج:</strong> نفط خام (Crude Oil)<br/>
           • <strong>المسار:</strong> أبوظبي (الرويس) → الفجيرة<br/>
@@ -1370,7 +1392,7 @@ html[dir="ltr"] .team-tag {
           • <strong>الوظيفة:</strong> توزيع إقليمي للمشتقات النفطية<br/>
           • <strong>الملكية:</strong> بنية تحتية تجارية مفتوحة لجميع الشركات
         </span>
-        <span class="en">
+        <span lang-en>
           <strong>ADNOC's Current Pipeline:</strong><br/>
           • <strong>Product:</strong> Crude Oil<br/>
           • <strong>Route:</strong> Abu Dhabi (Ruwais) → Fujairah<br/>
@@ -1387,17 +1409,17 @@ html[dir="ltr"] .team-tag {
       
       <div class="integration-highlight">
         <strong>
-          💡 <span class="ar-text">القيمة المضافة للنظام البيئي:</span>
-          <span class="en">Added Value to the Ecosystem:</span>
+          💡 <span lang-ar>القيمة المضافة للنظام البيئي:</span>
+          <span lang-en>Added Value to the Ecosystem:</span>
         </strong>
         <br/><br/>
-        <span class="ar-text">
+        <span lang-ar>
           • <strong>لأدنوك:</strong> خيار نقل إضافي للمشتقات المكررة بتكلفة أقل من الشحن البحري<br/>
           • <strong>للحكومة:</strong> تنويع البنية التحتية للطاقة وتقليل الاعتماد على مضيق هرمز<br/>
           • <strong>للقطاع الخاص:</strong> فتح مجال منافسة صحية في خدمات النقل<br/>
           • <strong>للأمن الوطني:</strong> بدائل لوجستية في حالات الطوارئ الجيوسياسية
         </span>
-        <span class="en">
+        <span lang-en>
           • <strong>For ADNOC:</strong> Additional transport option for refined products at lower cost than maritime shipping<br/>
           • <strong>For Government:</strong> Energy infrastructure diversification and reduced Hormuz dependence<br/>
           • <strong>For Private Sector:</strong> Healthy competition in transport services<br/>
@@ -1409,30 +1431,30 @@ html[dir="ltr"] .team-tag {
     <!-- مثال رقمي عملي -->
     <div class="integration-box" style="margin-top: 24px;">
       <h3 class="integration-title">
-        📊 <span class="ar-text">مثال عملي — التوفير المحتمل</span>
-        <span class="en">Practical Example — Potential Savings</span>
+        📊 <span lang-ar>مثال عملي — التوفير المحتمل</span>
+        <span lang-en>Practical Example — Potential Savings</span>
       </h3>
       
       <div style="background: rgba(158,110,4,0.08); border-radius: 12px; padding: 24px; margin-top: 16px;">
         <p style="font-size: 0.9rem; color: var(--mid); margin-bottom: 16px;">
-          <span class="ar-text"><strong>السيناريو:</strong> نقل 100,000 برميل ديزل من الفجيرة إلى ميناء جبل علي (دبي)</span>
-          <span class="en"><strong>Scenario:</strong> Transport 100,000 barrels of diesel from Fujairah to Jebel Ali Port (Dubai)</span>
+          <span lang-ar><strong>السيناريو:</strong> نقل 100,000 برميل ديزل من الفجيرة إلى ميناء جبل علي (دبي)</span>
+          <span lang-en><strong>Scenario:</strong> Transport 100,000 barrels of diesel from Fujairah to Jebel Ali Port (Dubai)</span>
         </p>
         
         <div class="compare-grid" style="gap: 16px;">
           <div style="background: rgba(192,112,24,0.08); border: 1px solid var(--amber); border-radius: 10px; padding: 20px;">
             <div style="font-size: 0.75rem; color: var(--amber); font-weight: 700; margin-bottom: 12px; letter-spacing: 1px;">
-              <span class="ar-text">⚠ الطريقة الحالية (بحري عبر هرمز)</span>
-              <span class="en">⚠ Current Method (Maritime via Hormuz)</span>
+              <span lang-ar>⚠ الطريقة الحالية (بحري عبر هرمز)</span>
+              <span lang-en>⚠ Current Method (Maritime via Hormuz)</span>
             </div>
             <div style="font-size: 0.8rem; color: var(--mid); line-height: 1.7;">
-              <span class="ar-text">
+              <span lang-ar>
                 • التكلفة: <strong>$450,000</strong><br/>
                 • المدة: <strong>10-12 يوماً</strong><br/>
                 • المخاطر: تأمين حربي + احتمال تأخير<br/>
                 • رسوم انتظار: $30,000/يوم تأخير
               </span>
-              <span class="en">
+              <span lang-en>
                 • Cost: <strong>$450,000</strong><br/>
                 • Duration: <strong>10-12 days</strong><br/>
                 • Risks: War insurance + potential delays<br/>
@@ -1443,17 +1465,17 @@ html[dir="ltr"] .team-tag {
 
           <div style="background: rgba(158,110,4,0.08); border: 1px solid var(--gold); border-radius: 10px; padding: 20px;">
             <div style="font-size: 0.75rem; color: var(--gold); font-weight: 700; margin-bottom: 12px; letter-spacing: 1px;">
-              <span class="ar-text">✓ عبر UEC (أنبوب بري)</span>
-              <span class="en">✓ Via UEC (Land Pipeline)</span>
+              <span lang-ar>✓ عبر UEC (أنبوب بري)</span>
+              <span lang-en>✓ Via UEC (Land Pipeline)</span>
             </div>
             <div style="font-size: 0.8rem; color: var(--mid); line-height: 1.7;">
-              <span class="ar-text">
+              <span lang-ar>
                 • التكلفة: <strong>$180,000</strong><br/>
                 • المدة: <strong>3 أيام</strong><br/>
                 • المخاطر: <strong>صفر</strong> (أنبوب مغلق تحت الأرض)<br/>
                 • رسوم انتظار: <strong>صفر</strong> (تدفق مستمر)
               </span>
-              <span class="en">
+              <span lang-en>
                 • Cost: <strong>$180,000</strong><br/>
                 • Duration: <strong>3 days</strong><br/>
                 • Risks: <strong>Zero</strong> (sealed underground pipeline)<br/>
@@ -1468,8 +1490,8 @@ html[dir="ltr"] .team-tag {
             60%
           </div>
           <div style="font-size: 0.85rem; color: var(--dark); font-weight: 600;">
-            <span class="ar-text">توفير في التكلفة + <strong>70% أسرع</strong> + <strong>صفر مخاطر</strong></span>
-            <span class="en">Cost Savings + <strong>70% Faster</strong> + <strong>Zero Risk</strong></span>
+            <span lang-ar>توفير في التكلفة + <strong>70% أسرع</strong> + <strong>صفر مخاطر</strong></span>
+            <span lang-en>Cost Savings + <strong>70% Faster</strong> + <strong>Zero Risk</strong></span>
           </div>
         </div>
       </div>
@@ -1478,8 +1500,8 @@ html[dir="ltr"] .team-tag {
     <!-- جدول مقارنة بصري -->
     <div class="integration-box" style="margin-top: 24px;">
       <h3 class="integration-title">
-        📋 <span class="ar-text">مقارنة شاملة — الفروقات الجوهرية</span>
-        <span class="en">Comprehensive Comparison — Core Differences</span>
+        📋 <span lang-ar>مقارنة شاملة — الفروقات الجوهرية</span>
+        <span lang-en>Comprehensive Comparison — Core Differences</span>
       </h3>
       
       <div style="overflow-x: auto; margin-top: 20px;">
@@ -1487,88 +1509,88 @@ html[dir="ltr"] .team-tag {
           <thead>
             <tr style="background: rgba(158,110,4,0.1);">
               <th style="padding: 14px; text-align: right; border: 1px solid var(--border); color: var(--gold); font-weight: 700;">
-                <span class="ar-text">المعيار</span>
-                <span class="en">Criteria</span>
+                <span lang-ar>المعيار</span>
+                <span lang-en>Criteria</span>
               </th>
               <th style="padding: 14px; text-align: center; border: 1px solid var(--border); color: var(--gold); font-weight: 700;">
-                <span class="ar-text">أنبوب أدنوك</span>
-                <span class="en">ADNOC Pipeline</span>
+                <span lang-ar>أنبوب أدنوك</span>
+                <span lang-en>ADNOC Pipeline</span>
               </th>
               <th style="padding: 14px; text-align: center; border: 1px solid var(--border); color: var(--gold); font-weight: 700;">
-                <span class="ar-text">أنبوب UEC</span>
-                <span class="en">UEC Pipeline</span>
+                <span lang-ar>أنبوب UEC</span>
+                <span lang-en>UEC Pipeline</span>
               </th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td style="padding: 12px; border: 1px solid var(--border); color: var(--mid); font-weight: 600;">
-                <span class="ar-text">نوع المنتج</span>
-                <span class="en">Product Type</span>
+                <span lang-ar>نوع المنتج</span>
+                <span lang-en>Product Type</span>
               </td>
               <td style="padding: 12px; border: 1px solid var(--border); text-align: center; color: var(--dark);">
-                <span class="ar-text">نفط خام</span>
-                <span class="en">Crude Oil</span>
+                <span lang-ar>نفط خام</span>
+                <span lang-en>Crude Oil</span>
               </td>
               <td style="padding: 12px; border: 1px solid var(--border); text-align: center; color: var(--dark);">
-                <span class="ar-text">مشتقات مكررة</span>
-                <span class="en">Refined Products</span>
+                <span lang-ar>مشتقات مكررة</span>
+                <span lang-en>Refined Products</span>
               </td>
             </tr>
             <tr style="background: rgba(158,110,4,0.03);">
               <td style="padding: 12px; border: 1px solid var(--border); color: var(--mid); font-weight: 600;">
-                <span class="ar-text">الاتجاه</span>
-                <span class="en">Direction</span>
+                <span lang-ar>الاتجاه</span>
+                <span lang-en>Direction</span>
               </td>
               <td style="padding: 12px; border: 1px solid var(--border); text-align: center; color: var(--dark);">
-                <span class="ar-text">أبوظبي → الفجيرة</span>
-                <span class="en">Abu Dhabi → Fujairah</span>
+                <span lang-ar>أبوظبي → الفجيرة</span>
+                <span lang-en>Abu Dhabi → Fujairah</span>
               </td>
               <td style="padding: 12px; border: 1px solid var(--border); text-align: center; color: var(--dark);">
-                <span class="ar-text">الفجيرة → موانئ الخليج</span>
-                <span class="en">Fujairah → Gulf Ports</span>
+                <span lang-ar>الفجيرة → موانئ الخليج</span>
+                <span lang-en>Fujairah → Gulf Ports</span>
               </td>
             </tr>
             <tr>
               <td style="padding: 12px; border: 1px solid var(--border); color: var(--mid); font-weight: 600;">
-                <span class="ar-text">الهدف</span>
-                <span class="en">Purpose</span>
+                <span lang-ar>الهدف</span>
+                <span lang-en>Purpose</span>
               </td>
               <td style="padding: 12px; border: 1px solid var(--border); text-align: center; color: var(--dark);">
-                <span class="ar-text">التصدير الدولي</span>
-                <span class="en">International Export</span>
+                <span lang-ar>التصدير الدولي</span>
+                <span lang-en>International Export</span>
               </td>
               <td style="padding: 12px; border: 1px solid var(--border); text-align: center; color: var(--dark);">
-                <span class="ar-text">التوزيع الإقليمي</span>
-                <span class="en">Regional Distribution</span>
+                <span lang-ar>التوزيع الإقليمي</span>
+                <span lang-en>Regional Distribution</span>
               </td>
             </tr>
             <tr style="background: rgba(158,110,4,0.03);">
               <td style="padding: 12px; border: 1px solid var(--border); color: var(--mid); font-weight: 600;">
-                <span class="ar-text">نموذج الوصول</span>
-                <span class="en">Access Model</span>
+                <span lang-ar>نموذج الوصول</span>
+                <span lang-en>Access Model</span>
               </td>
               <td style="padding: 12px; border: 1px solid var(--border); text-align: center; color: var(--dark);">
-                <span class="ar-text">خاص (أدنوك فقط)</span>
-                <span class="en">Proprietary (ADNOC only)</span>
+                <span lang-ar>خاص (أدنوك فقط)</span>
+                <span lang-en>Proprietary (ADNOC only)</span>
               </td>
               <td style="padding: 12px; border: 1px solid var(--border); text-align: center; color: var(--dark);">
-                <span class="ar-text">تجاري مفتوح</span>
-                <span class="en">Open Commercial</span>
+                <span lang-ar>تجاري مفتوح</span>
+                <span lang-en>Open Commercial</span>
               </td>
             </tr>
             <tr>
               <td style="padding: 12px; border: 1px solid var(--border); color: var(--mid); font-weight: 600;">
-                <span class="ar-text">العملاء المحتملون</span>
-                <span class="en">Potential Clients</span>
+                <span lang-ar>العملاء المحتملون</span>
+                <span lang-en>Potential Clients</span>
               </td>
               <td style="padding: 12px; border: 1px solid var(--border); text-align: center; color: var(--dark);">
-                <span class="ar-text">أدنوك</span>
-                <span class="en">ADNOC</span>
+                <span lang-ar>أدنوك</span>
+                <span lang-en>ADNOC</span>
               </td>
               <td style="padding: 12px; border: 1px solid var(--border); text-align: center; color: var(--dark);">
-                <span class="ar-text">أدنوك + جميع الشركات</span>
-                <span class="en">ADNOC + All Companies</span>
+                <span lang-ar>أدنوك + جميع الشركات</span>
+                <span lang-en>ADNOC + All Companies</span>
               </td>
             </tr>
           </tbody>
@@ -1577,14 +1599,14 @@ html[dir="ltr"] .team-tag {
 
       <div style="background: rgba(158,110,4,0.08); border-right: 4px solid var(--gold); padding: 20px; border-radius: 8px; margin-top: 24px;">
         <div style="font-size: 0.9rem; color: var(--dark); font-weight: 600; margin-bottom: 12px;">
-          <span class="ar-text">🎯 الخلاصة الاستراتيجية:</span>
-          <span class="en">🎯 Strategic Conclusion:</span>
+          <span lang-ar>🎯 الخلاصة الاستراتيجية:</span>
+          <span lang-en>🎯 Strategic Conclusion:</span>
         </div>
         <div style="font-size: 0.85rem; color: var(--mid); line-height: 1.8;">
-          <span class="ar-text">
+          <span lang-ar>
             UEC مُصمم ليكون <strong>مكمّلاً</strong> للبنية التحتية الحالية، وليس بديلاً عنها. أدنوك تستفيد من خيارات نقل إضافية بتكلفة أقل، والحكومة تحقق تنويعاً استراتيجياً في أمن الطاقة، والقطاع الخاص يحصل على فرص نمو جديدة. <strong>الجميع يربح.</strong>
           </span>
-          <span class="en">
+          <span lang-en>
             UEC is designed to be <strong>complementary</strong> to existing infrastructure, not a replacement. ADNOC benefits from additional transport options at lower cost, the government achieves strategic diversification in energy security, and the private sector gains new growth opportunities. <strong>Everyone wins.</strong>
           </span>
         </div>
@@ -1600,77 +1622,77 @@ html[dir="ltr"] .team-tag {
     
     <div class="section-badge">
       <span>◉</span>
-      <span class="ar-text">الأرقام الأساسية</span>
-      <span class="en">Key Numbers</span>
+      <span lang-ar>الأرقام الأساسية</span>
+      <span lang-en>Key Numbers</span>
     </div>
     
     <h2 class="section-title">
-      <span class="ar-text">نظرة عامة على الاستثمار</span>
-      <span class="en">Investment Overview</span>
+      <span lang-ar>نظرة عامة على الاستثمار</span>
+      <span lang-en>Investment Overview</span>
     </h2>
     
     <p class="section-subtitle">
-      <span class="ar-text">توقعات مالية محافظة مبنية على معايير دولية ومعايير تداول معتمدة.</span>
-      <span class="en">Conservative financial projections based on international benchmarks and established trading standards.</span>
+      <span lang-ar>توقعات مالية محافظة مبنية على معايير دولية ومعايير تداول معتمدة.</span>
+      <span lang-en>Conservative financial projections based on international benchmarks and established trading standards.</span>
     </p>
 
     <div class="kpi-grid">
       <div class="kpi-card">
         <div class="kpi-value">$10B</div>
         <div class="kpi-label">
-          <span class="ar-text">إجمالي الاستثمار</span>
-          <span class="en">Total Investment</span>
+          <span lang-ar>إجمالي الاستثمار</span>
+          <span lang-en>Total Investment</span>
         </div>
         <div class="kpi-sublabel">
-          <span class="ar-text">5 مراحل · 2027-2034</span>
-          <span class="en">5 phases · 2027–2034</span>
+          <span lang-ar>5 مراحل · 2027-2034</span>
+          <span lang-en>5 phases · 2027–2034</span>
         </div>
       </div>
 
       <div class="kpi-card">
         <div class="kpi-value">$570M+</div>
         <div class="kpi-label">
-          <span class="ar-text">الإيراد السنوي</span>
-          <span class="en">Annual Revenue</span>
+          <span lang-ar>الإيراد السنوي</span>
+          <span lang-en>Annual Revenue</span>
         </div>
         <div class="kpi-sublabel">
-          <span class="ar-text">عند الطاقة الكاملة</span>
-          <span class="en">At full capacity</span>
+          <span lang-ar>عند الطاقة الكاملة</span>
+          <span lang-en>At full capacity</span>
         </div>
       </div>
 
       <div class="kpi-card">
-        <div class="kpi-value">7-9<span class="ar-text">س</span><span class="en">Y</span></div>
+        <div class="kpi-value">7-9<span lang-ar>س</span><span lang-en>Y</span></div>
         <div class="kpi-label">
-          <span class="ar-text">الجدول الزمني</span>
-          <span class="en">Timeline</span>
+          <span lang-ar>الجدول الزمني</span>
+          <span lang-en>Timeline</span>
         </div>
         <div class="kpi-sublabel">
-          <span class="ar-text">من التطوير للتشغيل</span>
-          <span class="en">Development to operation</span>
+          <span lang-ar>من التطوير للتشغيل</span>
+          <span lang-en>Development to operation</span>
         </div>
       </div>
 
       <div class="kpi-card">
         <div class="kpi-value">40-65%</div>
         <div class="kpi-label">
-          <span class="ar-text">التوفير في التكلفة</span>
-          <span class="en">Cost Savings</span>
+          <span lang-ar>التوفير في التكلفة</span>
+          <span lang-en>Cost Savings</span>
         </div>
         <div class="kpi-sublabel">
-          <span class="ar-text">مقارنة بعبور هرمز</span>
-          <span class="en">vs. Hormuz transit</span>
+          <span lang-ar>مقارنة بعبور هرمز</span>
+          <span lang-en>vs. Hormuz transit</span>
         </div>
       </div>
     </div>
 
     <div class="nda-box">
       <p class="nda-text">
-        <strong>💼</strong> <span class="ar-text">للحصول على <strong>النموذج المالي الكامل</strong> والمواصفات التقنية التفصيلية:</span>
-        <span class="en">For <strong>Full Financial Model</strong> & Detailed Technical Specifications:</span>
+        <strong>💼</strong> <span lang-ar>للحصول على <strong>النموذج المالي الكامل</strong> والمواصفات التقنية التفصيلية:</span>
+        <span lang-en>For <strong>Full Financial Model</strong> & Detailed Technical Specifications:</span>
         <br/><br/>
-        <span class="ar-text"><strong>اتفاقية عدم إفشاء (NDA) + اجتماع مطلوب</strong><br/>العناية الواجبة التفصيلية متاحة للمستثمرين الجادين</span>
-        <span class="en"><strong>NDA + Meeting Required</strong><br/>Detailed Due Diligence Available for Serious Investors</span>
+        <span lang-ar><strong>اتفاقية عدم إفشاء (NDA) + اجتماع مطلوب</strong><br/>العناية الواجبة التفصيلية متاحة للمستثمرين الجادين</span>
+        <span lang-en><strong>NDA + Meeting Required</strong><br/>Detailed Due Diligence Available for Serious Investors</span>
       </p>
     </div>
 
@@ -1683,100 +1705,100 @@ html[dir="ltr"] .team-tag {
     
     <div class="section-badge">
       <span>◇</span>
-      <span class="ar-text">لماذا الآن</span>
-      <span class="en">Why Now</span>
+      <span lang-ar>لماذا الآن</span>
+      <span lang-en>Why Now</span>
     </div>
     
     <h2 class="section-title">
-      <span class="ar-text">اللحظة الاستراتيجية</span>
-      <span class="en">The Strategic Moment</span>
+      <span lang-ar>اللحظة الاستراتيجية</span>
+      <span lang-en>The Strategic Moment</span>
     </h2>
     
     <p class="section-subtitle">
-      <span class="ar-text">ستة عوامل متقاربة تجعل هذا الاستثمار في البنية التحتية صحيحاً في التوقيت الصحيح.</span>
-      <span class="en">Six converging factors that make this the right infrastructure play at the right time.</span>
+      <span lang-ar>ستة عوامل متقاربة تجعل هذا الاستثمار في البنية التحتية صحيحاً في التوقيت الصحيح.</span>
+      <span lang-en>Six converging factors that make this the right infrastructure play at the right time.</span>
     </p>
 
     <div class="why-grid">
       <div class="why-card">
         <div class="why-icon">🌍</div>
         <div class="why-title">
-          <span class="ar-text">تحول جيوسياسي</span>
-          <span class="en">Geopolitical Shift</span>
+          <span lang-ar>تحول جيوسياسي</span>
+          <span lang-en>Geopolitical Shift</span>
         </div>
         <p class="why-text">
-          <span class="ar-text">التوترات في هرمز هيكلية وليست دورية. التنويع الآن سياسة وطنية.</span>
-          <span class="en">Hormuz tensions are structural, not cyclical. Diversification is now national policy.</span>
+          <span lang-ar>التوترات في هرمز هيكلية وليست دورية. التنويع الآن سياسة وطنية.</span>
+          <span lang-en>Hormuz tensions are structural, not cyclical. Diversification is now national policy.</span>
         </p>
       </div>
 
       <div class="why-card">
         <div class="why-icon">📈</div>
         <div class="why-title">
-          <span class="ar-text">نمو الطلب الآسيوي</span>
-          <span class="en">Asian Demand Growth</span>
+          <span lang-ar>نمو الطلب الآسيوي</span>
+          <span lang-en>Asian Demand Growth</span>
         </div>
         <p class="why-text">
-          <span class="ar-text">الصين والهند تزيدان واردات المشتقات المكررة — UEC يقصّر طريق التوريد.</span>
-          <span class="en">China and India increasing refined product imports — UEC shortens the supply route.</span>
+          <span lang-ar>الصين والهند تزيدان واردات المشتقات المكررة — UEC يقصّر طريق التوريد.</span>
+          <span lang-en>China and India increasing refined product imports — UEC shortens the supply route.</span>
         </p>
       </div>
 
       <div class="why-card">
         <div class="why-icon">♻️</div>
         <div class="why-title">
-          <span class="ar-text">انتقال الطاقة</span>
-          <span class="en">Energy Transition</span>
+          <span lang-ar>انتقال الطاقة</span>
+          <span lang-en>Energy Transition</span>
         </div>
         <p class="why-text">
-          <span class="ar-text">البنية التحتية جاهزة للهيدروجين الأخضر — استثمار مستدام طويل الأجل.</span>
-          <span class="en">Infrastructure ready for green hydrogen — future-proof long-term investment.</span>
+          <span lang-ar>البنية التحتية جاهزة للهيدروجين الأخضر — استثمار مستدام طويل الأجل.</span>
+          <span lang-en>Infrastructure ready for green hydrogen — future-proof long-term investment.</span>
         </p>
       </div>
 
       <div class="why-card">
         <div class="why-icon">🚢</div>
         <div class="why-title">
-          <span class="ar-text">ضغوط التكلفة</span>
-          <span class="en">Cost Pressures</span>
+          <span lang-ar>ضغوط التكلفة</span>
+          <span lang-en>Cost Pressures</span>
         </div>
         <p class="why-text">
-          <span class="ar-text">أسعار الشحن البحري تتزايد — الخطوط الأنبوبية تقدم يقيناً تعاقدياً.</span>
-          <span class="en">Maritime shipping costs rising — pipelines offer contractual certainty.</span>
+          <span lang-ar>أسعار الشحن البحري تتزايد — الخطوط الأنبوبية تقدم يقيناً تعاقدياً.</span>
+          <span lang-en>Maritime shipping costs rising — pipelines offer contractual certainty.</span>
         </p>
       </div>
 
       <div class="why-card">
         <div class="why-icon">🏗️</div>
         <div class="why-title">
-          <span class="ar-text">نافذة التنفيذ</span>
-          <span class="en">Execution Window</span>
+          <span lang-ar>نافذة التنفيذ</span>
+          <span lang-en>Execution Window</span>
         </div>
         <p class="why-text">
-          <span class="ar-text">المعايير التنظيمية والبيئية تتشدد — البدء الآن يتجنب تأخيرات مستقبلية.</span>
-          <span class="en">Regulatory and environmental standards tightening — starting now avoids future delays.</span>
+          <span lang-ar>المعايير التنظيمية والبيئية تتشدد — البدء الآن يتجنب تأخيرات مستقبلية.</span>
+          <span lang-en>Regulatory and environmental standards tightening — starting now avoids future delays.</span>
         </p>
       </div>
 
       <div class="why-card">
         <div class="why-icon">🇦🇪</div>
         <div class="why-title">
-          <span class="ar-text">دعم الدولة</span>
-          <span class="en">Government Alignment</span>
+          <span lang-ar>دعم الدولة</span>
+          <span lang-en>Government Alignment</span>
         </div>
         <p class="why-text">
-          <span class="ar-text">يتماشى مع رؤية الإمارات 2030 وأهداف أمن الطاقة الوطنية.</span>
-          <span class="en">Aligns with UAE Vision 2030 and national energy security goals.</span>
+          <span lang-ar>يتماشى مع رؤية الإمارات 2030 وأهداف أمن الطاقة الوطنية.</span>
+          <span lang-en>Aligns with UAE Vision 2030 and national energy security goals.</span>
         </p>
       </div>
     </div>
 
     <div class="urgency-box">
       <div class="urgency-title">
-        ⚡ <span class="ar-text">نافذة الفرصة تُغلق</span><span class="en">The Window Is Closing</span>
+        ⚡ <span lang-ar>نافذة الفرصة تُغلق</span><span lang-en>The Window Is Closing</span>
       </div>
       <p class="urgency-text">
-        <span class="ar-text">
+        <span lang-ar>
           كل <span class="urgency-highlight">سنة تأخير</span> تعني خسارة <span class="urgency-highlight">$570 مليون</span> من الإيرادات المحتملة.
           <br/>
           المعايير البيئية تتشدد. التراخيص تزداد تعقيداً. التكاليف الإنشائية ترتفع سنوياً.
@@ -1784,7 +1806,7 @@ html[dir="ltr"] .team-tag {
           <strong>التحرك الآن = ميزة السبق في السوق.</strong><br/>
           <strong>التأخير لعامين = خسارة الفرصة للأبد.</strong>
         </span>
-        <span class="en">
+        <span lang-en>
           Every <span class="urgency-highlight">year of delay</span> means <span class="urgency-highlight">$570M</span> in lost potential revenue.
           <br/>
           Environmental standards tightening. Permits becoming more complex. Construction costs rising annually.
@@ -1804,18 +1826,18 @@ html[dir="ltr"] .team-tag {
     
     <div class="section-badge">
       <span>👥</span>
-      <span class="ar-text">الفريق</span>
-      <span class="en">The Team</span>
+      <span lang-ar>الفريق</span>
+      <span lang-en>The Team</span>
     </div>
     
     <h2 class="section-title">
-      <span class="ar-text">الأشخاص خلف المشروع</span>
-      <span class="en">People Behind the Project</span>
+      <span lang-ar>الأشخاص خلف المشروع</span>
+      <span lang-en>People Behind the Project</span>
     </h2>
     
     <p class="section-subtitle">
-      <span class="ar-text">رؤية مطور المشروع، مدعومة بخبرة استشارية معتمدة ومرخّصة من دائرة التنمية الاقتصادية.</span>
-      <span class="en">Project developer's vision, backed by certified expertise and licensed strategic advisory from Abu Dhabi Economic Development.</span>
+      <span lang-ar>رؤية مطور المشروع، مدعومة بخبرة استشارية معتمدة ومرخّصة من دائرة التنمية الاقتصادية.</span>
+      <span lang-en>Project developer's vision, backed by certified expertise and licensed strategic advisory from Abu Dhabi Economic Development.</span>
     </p>
 
     <!-- Ali Al-Mazm Card -->
@@ -1830,22 +1852,22 @@ html[dir="ltr"] .team-tag {
         <div style="flex: 1; min-width: 220px;">
           <div style="font-size: 0.72rem; font-weight: 700; color: #9e6e04; letter-spacing: 3px; margin-bottom: 0.5rem;">PROJECT DEVELOPER</div>
           <div style="font-size: 1.5rem; font-weight: 900; color: #1a1208; margin-bottom: 0.3rem;">
-            <span class="ar-text">علي محمد قمبر المازم</span>
-            <span class="en">Ali Mohammed Qambar Al-Mazm</span>
+            <span lang-ar>علي محمد قمبر المازم</span>
+            <span lang-en>Ali Mohammed Qambar Al-Mazm</span>
           </div>
           <div style="width: 40px; height: 3px; background: linear-gradient(90deg,#9e6e04,#c8a030); border-radius: 2px; margin-bottom: 0.8rem;"></div>
           <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
             <span style="background: rgba(158,110,4,0.15); color: #9e6e04; border: 1px solid rgba(158,110,4,0.3); border-radius: 6px; padding: 3px 12px; font-size: 0.72rem; font-weight: 700;">
-              <span class="ar-text">رؤية استراتيجية</span>
-              <span class="en">Strategic Vision</span>
+              <span lang-ar>رؤية استراتيجية</span>
+              <span lang-en>Strategic Vision</span>
             </span>
             <span style="background: rgba(192,112,24,0.15); color: #c07018; border: 1px solid rgba(192,112,24,0.3); border-radius: 6px; padding: 3px 12px; font-size: 0.72rem; font-weight: 700;">
-              <span class="ar-text">تطوير المشاريع</span>
-              <span class="en">Project Development</span>
+              <span lang-ar>تطوير المشاريع</span>
+              <span lang-en>Project Development</span>
             </span>
             <span style="background: rgba(158,110,4,0.15); color: #9e6e04; border: 1px solid rgba(158,110,4,0.3); border-radius: 6px; padding: 3px 12px; font-size: 0.72rem; font-weight: 700;">
-              <span class="ar-text">البنية التحتية للطاقة</span>
-              <span class="en">Energy Infrastructure</span>
+              <span lang-ar>البنية التحتية للطاقة</span>
+              <span lang-en>Energy Infrastructure</span>
             </span>
           </div>
         </div>
@@ -1891,32 +1913,32 @@ html[dir="ltr"] .team-tag {
             <div style="display: flex; align-items: center; gap: 0.7rem;">
               <span style="font-size: 0.9rem; width: 20px; text-align: center;">📧</span>
               <span style="font-size: 0.72rem; color: #c8b590; min-width: 80px;">
-                <span class="ar-text">البريد الإلكتروني</span>
-                <span class="en">Email</span>
+                <span lang-ar>البريد الإلكتروني</span>
+                <span lang-en>Email</span>
               </span>
               <span style="font-size: 0.8rem; color: #1a1208; font-weight: 500;">info@protechspecifications.ae</span>
             </div>
             <div style="display: flex; align-items: center; gap: 0.7rem;">
               <span style="font-size: 0.9rem; width: 20px; text-align: center;">🌐</span>
               <span style="font-size: 0.72rem; color: #c8b590; min-width: 80px;">
-                <span class="ar-text">الموقع الإلكتروني</span>
-                <span class="en">Website</span>
+                <span lang-ar>الموقع الإلكتروني</span>
+                <span lang-en>Website</span>
               </span>
               <span style="font-size: 0.8rem; color: #1a1208; font-weight: 500;">www.protechspecifications.ae</span>
             </div>
             <div style="display: flex; align-items: center; gap: 0.7rem;">
               <span style="font-size: 0.9rem; width: 20px; text-align: center;">📱</span>
               <span style="font-size: 0.72rem; color: #c8b590; min-width: 80px;">
-                <span class="ar-text">الجوال</span>
-                <span class="en">Mobile</span>
+                <span lang-ar>الجوال</span>
+                <span lang-en>Mobile</span>
               </span>
               <span style="font-size: 0.8rem; color: #1a1208; font-weight: 500;">+971 56 982 5526</span>
             </div>
             <div style="display: flex; align-items: center; gap: 0.7rem;">
               <span style="font-size: 0.9rem; width: 20px; text-align: center;">📍</span>
               <span style="font-size: 0.72rem; color: #c8b590; min-width: 80px;">
-                <span class="ar-text">العنوان</span>
-                <span class="en">Address</span>
+                <span lang-ar>العنوان</span>
+                <span lang-en>Address</span>
               </span>
               <span style="font-size: 0.8rem; color: #1a1208; font-weight: 500;">Al Nahyan, Abu Dhabi, UAE</span>
             </div>
@@ -1925,14 +1947,14 @@ html[dir="ltr"] .team-tag {
       </div>
       <div style="background: #f7f2e8; border-top: 1px solid #dfd0b5; padding: 0.75rem 2.5rem; display: flex; gap: 2rem; align-items: center; flex-wrap: wrap;">
         <div style="font-size: 0.72rem; color: #c8b590;">
-          <span class="ar-text">رقم الترخيص</span>
-          <span class="en">License No.</span>
+          <span lang-ar>رقم الترخيص</span>
+          <span lang-en>License No.</span>
         </div>
         <div style="font-size: 0.8rem; font-weight: 700; color: #1a1208;">CN5519749</div>
         <div style="width: 1px; height: 16px; background: #dfd0b5;"></div>
         <div style="font-size: 0.72rem; color: #c8b590;">
-          <span class="ar-text">جهة التسجيل</span>
-          <span class="en">Registered with</span>
+          <span lang-ar>جهة التسجيل</span>
+          <span lang-en>Registered with</span>
         </div>
         <div style="font-size: 0.8rem; font-weight: 600; color: #1a1208;">Abu Dhabi Department of Economic Development (ADDED)</div>
       </div>
@@ -1941,27 +1963,27 @@ html[dir="ltr"] .team-tag {
     <!-- IP Strip -->
     <div class="ip-strip">
       <span class="ip-label">
-        <span class="ar-text">الملكية الفكرية</span>
-        <span class="en">Intellectual Property</span>
+        <span lang-ar>الملكية الفكرية</span>
+        <span lang-en>Intellectual Property</span>
       </span>
       <span class="ip-value">No. 1298-2026</span>
       <span class="ip-sep">·</span>
       <span class="ip-label">
-        <span class="ar-text">الجهة المُصدِرة</span>
-        <span class="en">Issued by</span>
+        <span lang-ar>الجهة المُصدِرة</span>
+        <span lang-en>Issued by</span>
       </span>
       <span class="ip-value">
-        <span class="ar-text">وزارة الاقتصاد والسياحة — الإمارات</span>
-        <span class="en">Ministry of Economy & Tourism — UAE</span>
+        <span lang-ar>وزارة الاقتصاد والسياحة — الإمارات</span>
+        <span lang-en>Ministry of Economy & Tourism — UAE</span>
       </span>
       <span class="ip-sep">·</span>
       <span class="ip-label">
-        <span class="ar-text">التاريخ</span>
-        <span class="en">Date</span>
+        <span lang-ar>التاريخ</span>
+        <span lang-en>Date</span>
       </span>
       <span class="ip-value">
-        <span class="ar-text">22 أبريل 2026</span>
-        <span class="en">April 22, 2026</span>
+        <span lang-ar>22 أبريل 2026</span>
+        <span lang-en>April 22, 2026</span>
       </span>
     </div>
 
@@ -1975,24 +1997,24 @@ html[dir="ltr"] .team-tag {
     <div class="cta-box">
       <div class="section-badge" style="margin:0 auto 24px">
         <span>📞</span>
-        <span class="ar-text">الخطوة التالية</span>
-        <span class="en">Next Step</span>
+        <span lang-ar>الخطوة التالية</span>
+        <span lang-en>Next Step</span>
       </div>
       
       <h2 class="cta-title">
-        <span class="ar-text">هل أنت مستعد لتكون جزءاً من<br/><span class="cta-gold">أكبر مشروع بنية تحتية في الخليج؟</span></span>
-        <span class="en">Are You Ready to Be Part of<br/><span class="cta-gold">The Gulf's Biggest Infrastructure Play?</span></span>
+        <span lang-ar>هل أنت مستعد لتكون جزءاً من<br/><span class="cta-gold">أكبر مشروع بنية تحتية في الخليج؟</span></span>
+        <span lang-en>Are You Ready to Be Part of<br/><span class="cta-gold">The Gulf's Biggest Infrastructure Play?</span></span>
       </h2>
       
       <p class="cta-subtitle">
-        <span class="ar-text">
+        <span lang-ar>
           ممر الإمارات للطاقة ليس مجرد أنبوب نفطي — إنه <strong>أصل استراتيجي</strong> يعيد رسم خريطة الطاقة الإقليمية للقرن القادم.<br/><br/>
           نحن نبحث عن شركاء يجلبون <strong>رأس المال، الرؤية، والقناعة</strong> لتشكيل مستقبل أمن الطاقة في المنطقة.
           <br/><br/>
           <strong>إذا كنت تبحث عن استثمار سريع — هذا ليس لك.</strong><br/>
           <strong>إذا كنت تبحث عن تأثير استراتيجي طويل الأجل — دعنا نتحدث.</strong>
         </span>
-        <span class="en">
+        <span lang-en>
           UAE Smart Energy Corridor is not just an oil pipeline — it's a <strong>strategic asset</strong> reshaping the regional energy map for the next century.<br/><br/>
           We seek partners who bring <strong>capital, vision, and conviction</strong> to shape the future of regional energy security.
           <br/><br/>
@@ -2004,28 +2026,28 @@ html[dir="ltr"] .team-tag {
       <div class="contact-buttons">
         <a href="https://wa.me/971505373707?text=I%20am%20interested%20in%20the%20UAE%20Smart%20Energy%20Corridor%20investment%20opportunity" class="contact-btn btn-whatsapp" target="_blank">
           <span class="btn-icon">📱</span>
-          <span class="ar-text">واتساب مباشر</span>
-          <span class="en">WhatsApp Direct</span>
+          <span lang-ar>واتساب مباشر</span>
+          <span lang-en>WhatsApp Direct</span>
         </a>
         <a href="mailto:info@protechspecifications.ae?subject=UEC%20Investment%20Inquiry&body=I%20am%20interested%20in%20learning%20more%20about%20the%20UAE%20Smart%20Energy%20Corridor%20investment%20opportunity." class="contact-btn btn-email">
           <span class="btn-icon">📧</span>
-          <span class="ar-text">إرسال إيميل</span>
-          <span class="en">Send Email</span>
+          <span lang-ar>إرسال إيميل</span>
+          <span lang-en>Send Email</span>
         </a>
         <a href="tel:+971505373707" class="contact-btn btn-call">
           <span class="btn-icon">📞</span>
-          <span class="ar-text">اتصل الآن</span>
-          <span class="en">Call Now</span>
+          <span lang-ar>اتصل الآن</span>
+          <span lang-en>Call Now</span>
         </a>
       </div>
 
       <div class="confidential">
-        <span class="ar-text">
+        <span lang-ar>
           ممر الإمارات للطاقة الذكي · مذكرة استثمارية سرية · 2026<br/>
           هذه الوثيقة موجهة حصرياً للمتلقي المحدد ولا يجوز إعادة إنتاجها أو توزيعها دون موافقة خطية مسبقة.<br/>
           شهادة الملكية الفكرية رقم 1298-2026 · وزارة الاقتصاد والسياحة — الإمارات · developer@uec-emirates.ae
         </span>
-        <span class="en">
+        <span lang-en>
           UAE Smart Energy Corridor · Confidential Investment Memorandum · 2026<br/>
           This document is intended solely for the named recipient and may not be reproduced or distributed without prior written consent.<br/>
           Intellectual Property Certificate No. 1298-2026 · Ministry of Economy & Tourism, UAE · developer@uec-emirates.ae
